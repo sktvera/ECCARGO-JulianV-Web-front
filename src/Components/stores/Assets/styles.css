@@ -1,0 +1,43 @@
+
+.store{
+    background-image: url('./Img/CONEJO.jpg');
+    height: 900PX;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.storesCard{
+    background-color: white;
+    width: 400px;
+    height: 130px;
+}
+.containerSelect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.containerSelect-item{
+    width: 90% !important;
+}
+
+.storesCard p{
+    font-weight: bold;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+.selected{
+    background-color: black;
+    color: white !important;
+    font-weight: bold;
+}
+
+.items-selected{
+   color: black !important;
+   font-weight: bold;
+    border: 1px solid rgb(0, 0, 0) !important;
+}
+

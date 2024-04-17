@@ -1,0 +1,57 @@
+.bodyCard .tittles p:first-child{
+    font-weight: bold;
+}
+
+.bodyCard .tittles .cardItem{
+    font-size: 14px;
+}
+
+.bodyCard .tittles {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.bodyCard{
+    height: 50px;
+    background-color: rgba(16, 16, 16, 0.148);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    
+}
+
+
+@media (max-width:1300px) {
+.bodyCard img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.bodyCard{
+    width: 300px;
+}
+}
+
+
+@media (max-width:900px) {
+  
+    .bodyCard{
+        width: 260px;
+    }
+    }
+
+    @media (max-width:750px) {
+  
+        .bodyCard{
+            width: 200px;
+        }
+        }
+
+        @media (max-width:400px) {
+  
+            .bodyCard{
+                width: 140px;
+            }
+            }

@@ -1,0 +1,91 @@
+.MensinteractiveMenu { 
+    display:flex ;
+    align-items: flex-start
+}
+
+.MensinteractiveMenu-colors{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.MensinteractiveMenu-sizeCards{
+    display: flex;
+    justify-content: center;
+
+    
+}
+
+
+.menuCategories ul{
+    
+    list-style: none;
+}
+
+.menuCategories ul li:first-child{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.menuCategories ul li:first-child:hover{
+   text-decoration: none !important;
+}
+
+.menuCategories ul li:hover{
+    text-decoration: underline;
+}
+.Colors p{
+    font-weight: bold;
+    font-size: 22px;
+}
+
+
+.colors-Contained{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+  
+}
+
+
+.Colors .colors-Contained .colorSquare {
+    width: 16px;
+    height: 16px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.sizeCards .colors-Contained .sizeSquare{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 30px;
+    width: 20px;
+}
+
+
+.sizeCards .colors-Contained .sizeSquare:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.sizeCards .title{
+font-weight: bold;
+font-size: 22px;
+}
+
+
+
+
+
+@media (max-width:1000px) {
+    .menuCategories{
+       position: absolute;
+      bottom:-260px;
+     left: -35px;
+text-align: start;
+    }
+        }

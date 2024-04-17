@@ -1,0 +1,84 @@
+.nav{
+  width: 90%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+.line{
+width: 1px;
+background-color: rgb(255, 255, 255);
+height: 5px;
+}
+.menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu a{
+  margin: 0px 10px 0px 10px;
+  text-decoration: none; 
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+.menu a:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.menu .sale:hover{
+  color: #25D366 !important;
+  text-decoration: none !important;
+
+}
+.userMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userMenu-item{
+  margin: 0px 10px 0px 10px;
+  cursor: pointer;
+  
+}
+
+.flagAndText{
+  cursor: pointer;
+display: grid;
+grid-template-rows: auto auto;
+  height: 80%;
+}
+
+.flagAndText p{
+  text-align: center;
+ font-size: 10px;
+ 
+}
+
+.userMenu-item .avatar{
+  height: 100%;
+  width: 100%;
+ 
+}
+
+
+@media (max-width:800px) {
+	.nav{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }
+}
+
+@media (max-width:500px) {
+	.menu a{
+       font-size: 14px !important;
+    
+    }
+}
+
+
+@media (max-width:370px) {
+	.menu a{
+       font-size: 10px !important;
+    
+    }
+}

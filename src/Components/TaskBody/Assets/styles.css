@@ -1,0 +1,28 @@
+.taskSave{
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grid-dinamicCard{
+    display: grid;
+    grid-template-rows: 60% 40%;
+    height: 80%;
+    width: 80%;
+}
+.buttonsActive{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap:10px;
+    height: 15px;
+}
+.buttonsActive button{
+    background-color: #ff6600;
+}
+.buttonsActive button:hover{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: 1px solid black;
+}

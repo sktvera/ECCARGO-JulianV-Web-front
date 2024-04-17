@@ -1,0 +1,19 @@
+.bodyCard{
+    width: 200px;
+    position: relative;
+  }
+  .ButtonsCard{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.ButtonsCard button{
+    margin: 3px 0px 3px 0px;
+   background-color:  #ff6600;
+   color: black;
+   font-weight: bold;
+   border: 1px solid rgb(255, 255, 255);
+}
+.ButtonsCard button:hover{
+    border: 1px solid black;
+}

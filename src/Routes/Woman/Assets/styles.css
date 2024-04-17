@@ -1,0 +1,12 @@
+.contentFormCot{
+    display: flex;
+    flex-direction: column;
+}
+.buttonCot{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
