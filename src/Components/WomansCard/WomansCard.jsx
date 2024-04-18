@@ -1,18 +1,38 @@
-import React from "react";
-
+import React,{useEffect,useState} from "react";
+//COMPONENTES______
 import CardsAll from "../../Components/CardsAll/CardsAll";
 import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
-
+//ASSETS_____
 import "./Assets/styles.css";
-
 import Load from "./Assets/Img/Load.svg";
+//SERVICES_____
+import {getAllQuotation} from "../../services/Quotation/Quotation";
 
-function WomansCard({ dataCotizacion }) {
-  console.log({ dataCotizacion });
+function WomansCard({dataCotizacion}) {
+
+
+  const [allQuotation,setAllQuotation]=useState([])
+  const[isDelete,setIsDelete]=useState()
+
+  useEffect(() => {
+    const fetchAllQuotations = async () => {
+      try {
+        const response = await getAllQuotation();
+        setAllQuotation(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchAllQuotations();
+  }, [dataCotizacion, isDelete]);
+
+
+
+  
 
   return (
     <>
-      {dataCotizacion.length > 0 ? (
+      {allQuotation.length > 0 ? (
         <div>
           <div>
             <div className="ordered">
@@ -21,8 +41,11 @@ function WomansCard({ dataCotizacion }) {
             </div>
 
             <div className="cardsGrid">
-              {dataCotizacion.map((items) => {
-                return <CardsAll items={items} />;
+              {allQuotation.map((items) => {
+                return <CardsAll 
+                items={items}
+                setIsDelete={setIsDelete}
+                 />;
               })}
             </div>
           </div>
@@ -40,3 +63,5 @@ function WomansCard({ dataCotizacion }) {
 }
 
 export default WomansCard;
+
+

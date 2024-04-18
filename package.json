@@ -1,6 +1,6 @@
 {
   "homepage": "https://sktvera.github.io/mattelsaChallenge",
-  "name": "mattelsachallenge",
+  "name": "ECCARGOTest",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.3",
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.6.8",
     "cra-template": "1.2.0",
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",

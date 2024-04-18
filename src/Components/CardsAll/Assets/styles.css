@@ -13,15 +13,40 @@
 }
 
 .bodyCard{
+    position: relative;
     height: 50px;
     background-color: rgba(16, 16, 16, 0.148);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+}
+
+.iconContainer {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajusta este valor para cambiar la distancia de los íconos al borde derecho */
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px; /* Ajusta este valor para cambiar el espacio entre los íconos */
+  
+}
+
+.bodyCard:hover .iconContainer {
+    display: block;
+    cursor: pointer;
+    top: 10;
     
 }
 
+.editIcon, .deleteIcon {
+    display: none;
+}
+
+.bodyCard:hover .editIcon,
+.bodyCard:hover .deleteIcon {
+    display: block;
+}
 
 @media (max-width:1300px) {
 .bodyCard img{
@@ -40,18 +65,18 @@
     .bodyCard{
         width: 260px;
     }
+}
+
+@media (max-width:750px) {
+  
+    .bodyCard{
+        width: 200px;
     }
+}
 
-    @media (max-width:750px) {
+@media (max-width:400px) {
   
-        .bodyCard{
-            width: 200px;
-        }
-        }
-
-        @media (max-width:400px) {
-  
-            .bodyCard{
-                width: 140px;
-            }
-            }
+    .bodyCard{
+        width: 140px;
+    }
+}

@@ -9,11 +9,9 @@ function WelcomeHome() {
   const navigate = useNavigate();
 
 /*  ---------------- NAVIGATE TO CARDS ----------------------------*/
-  const navigateToMens = () => {
-    navigate(`/Mens`);
-    }
+
     const navigateToWoman = () => {
-      navigate(`/Woman`);
+      navigate(`/Quotation`);
       }
 
   return (

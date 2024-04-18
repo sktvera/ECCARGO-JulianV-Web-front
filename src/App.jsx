@@ -22,12 +22,12 @@ function App() {
       <Header/>
     <Routes>
       <Route path='/' exact={true} element={<Welcome/>}/>
-      <Route path='/mattelsaChallenge' element={<Welcome/>}/>
+      <Route path='/ECCARGO' element={<Welcome/>}/>
       <Route path="/Mens" element={<Mens/>}/>
-      <Route path="/woman" element={<Woman/>}/>
-      <Route path="/task/:id" element={<Task/>}/>
-      <Route path="/store" element={<Stores/>}/>
-      <Route path="/things" element={<Things/>}/>
+      <Route path="/Quotation" element={<Woman/>}/>
+      {/* <Route path="/task/:id" element={<Task/>}/> */}
+     {/*  <Route path="/store" element={<Stores/>}/>
+      <Route path="/things" element={<Things/>}/> */}
      
     </Routes>
     <Footer/>

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, {useEffect , useState } from "react";
+//COMPONENTS_____
 import Womancategories from "../../Components/Womancategories/Womancategories";
 import MensinteractiveMenu from "../../Components/MensinteractiveMenu/MensinteractiveMenu";
 import WomansCard from "../../Components/WomansCard/WomansCard";
+//ASSETS_____
 import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -11,9 +13,12 @@ import {
   FormControl,
   InputLabel,
 } from "@material-ui/core";
-
 import "./Assets/styles.css";
+//SERVICES_________
+import {createQquotation} from "../../services/Quotation/Quotation";
 
+
+//styles modal______
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -42,16 +47,48 @@ function Woman() {
   const [cargoType, setCargoType] = useState("");
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
-  const [dataCotizacion, setDataCotizacion] = useState([]);
+  const [dataCotizacion, setDataCotizacion] = useState();
+  
+
+  
+
 
   const handleSubmit = () => {
     if (service && mode && cargoType && origin && destination) {
-      setDataCotizacion([...dataCotizacion, { service, mode, cargoType, origin, destination }]);
+      setDataCotizacion({ service, mode, cargoType, origin, destination });
       setOpenModal(false);
-    } else {
-      alert("Por favor, complete todos los campos antes de enviar.");
     }
-  };
+  }
+
+
+  const submitcreateQquotation = () =>{
+    createQquotation(dataCotizacion)
+    .then(response => {
+      setService("")
+      setMode("")
+      setCargoType("")
+      setOrigin("")
+      setDestination("")
+      setDataCotizacion()
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+
+  useEffect(() => {
+    if (dataCotizacion) {
+      submitcreateQquotation();
+    }
+  }, [dataCotizacion]);
+
+
+
+
+
+ 
+
+     
 
   const body = (
     <div className={classes.paper}>
@@ -109,7 +146,7 @@ function Woman() {
   );
 
 
-  console.log({dataCotizacion})
+
 
   return (
     <div>
