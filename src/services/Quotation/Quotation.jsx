@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-/* const urlApi =`https://backend-eccargo-julianv-production.up.railway.app` */
-const urlApi =`http://localhost:3000`
+const urlApi =`https://backend-eccargo-julianv-production.up.railway.app`
+/* const urlApi =`http://localhost:3000` */
 
 
 console.log({urlApi})
