@@ -1,9 +1,4 @@
 import React from "react";
-import basicos from "./Assets/Img/basicos.jpg";
-import cargo from "./Assets/Img/cargo.jpg";
-import denim from "./Assets/Img/denim.jpg";
-import gorras from "./Assets/Img/gorras.jpg";
-import graficos from "./Assets/Img/graficos.jpg";
 import oversizeh from "./Assets/Img/oversizeh.jpg";
 
 import "./Assets/styles.css";
