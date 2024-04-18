@@ -137,7 +137,7 @@ function Woman() {
         <MensinteractiveMenu />
         <WomansCard dataCotizacion={dataCotizacion} />
       </div>
-
+     {/*  MODAL PARA CREAR COTIZACIONES _______________________ */}
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}

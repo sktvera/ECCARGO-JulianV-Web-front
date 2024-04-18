@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 //COMPONENTES______
 import CardsAll from "../../Components/CardsAll/CardsAll";
-import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
+
 //ASSETS_____
 import "./Assets/styles.css";
 import Load from "./Assets/Img/Load.svg";
@@ -36,8 +36,7 @@ function WomansCard({dataCotizacion}) {
         <div>
           <div>
             <div className="ordered">
-              <div>ordenar por:</div>
-              <ViewCarouselIcon />
+            <br/>
             </div>
 
             <div className="cardsGrid">
