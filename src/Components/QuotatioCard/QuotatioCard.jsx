@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react";
 //COMPONENTES______
-import CardsAll from "../../Components/CardsAll/CardsAll";
+import CardsAll from "../CardsAll/CardsAll";
 
 //ASSETS_____
 import "./Assets/styles.css";
@@ -8,7 +8,7 @@ import Load from "./Assets/Img/Load.svg";
 //SERVICES_____
 import {getAllQuotation} from "../../services/Quotation/Quotation";
 
-function WomansCard({dataCotizacion}) {
+function QuotatioCard({dataCotizacion}) {
 
 
   const [allQuotation,setAllQuotation]=useState([])
@@ -61,6 +61,6 @@ function WomansCard({dataCotizacion}) {
   );
 }
 
-export default WomansCard;
+export default QuotatioCard;
 
 

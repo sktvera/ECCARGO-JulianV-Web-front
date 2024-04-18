@@ -1,0 +1,27 @@
+.master-containerAppBar{
+    margin-top: 10px;
+  width: 100%;
+
+  display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.containerAppBar{
+    width: 450px;  
+}
+
+.containerAppBar .AppBar{
+    display: flex;
+    gap: 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.containerAppBar .AppBar .Toolbar{
+    display: flex;
+    gap: 20px;
+}

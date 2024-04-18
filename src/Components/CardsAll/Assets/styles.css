@@ -11,33 +11,39 @@
     flex-direction: row;
     gap: 10px;
 }
+.titlebodyCard{
+    background-color: #00000024;
+    width: 340px;
+    border-radius: 8px 8px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    -webkit-border-radius: 8px 8px 0px 0px;
+    -moz-border-radius: 8px 8px 0px 0px;
+    -ms-border-radius: 8px 8px 0px 0px;
+    -o-border-radius: 8px 8px 0px 0px;
+    margin-bottom: 20px;
+}
 
 .bodyCard{
-    position: relative;
-    height: 50px;
-    background-color: rgba(16, 16, 16, 0.148);
+width: 340px;
+    flex-direction: column;
+  box-shadow: 10px 10px 29px -13px #000000bf;;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+ 
 }
 
-.iconContainer {
-    position: absolute;
-    top: 50%;
-    right: 10px; /* Ajusta este valor para cambiar la distancia de los íconos al borde derecho */
-    transform: translateY(-50%);
+.iconContainer{
     display: flex;
-    gap: 10px; /* Ajusta este valor para cambiar el espacio entre los íconos */
-  
+    flex-direction: row;
+    margin-right: 5px;
 }
 
-.bodyCard:hover .iconContainer {
-    display: block;
-    cursor: pointer;
-    top: 10;
-    
-}
+
+ 
 
 .editIcon, .deleteIcon {
     display: none;
@@ -54,29 +60,21 @@
     width: 100%;
     height: 100%;
 }
-.bodyCard{
-    width: 300px;
-}
+
 }
 
 
 @media (max-width:900px) {
   
-    .bodyCard{
-        width: 260px;
-    }
+ 
 }
 
 @media (max-width:750px) {
   
-    .bodyCard{
-        width: 200px;
-    }
+   
 }
 
 @media (max-width:400px) {
   
-    .bodyCard{
-        width: 140px;
-    }
+   
 }
