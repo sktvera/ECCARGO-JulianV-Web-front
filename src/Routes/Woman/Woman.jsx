@@ -1,4 +1,4 @@
-import React, {useEffect , useState } from "react";
+import React, { useEffect, useState } from "react";
 //COMPONENTS_____
 import Womancategories from "../../Components/Womancategories/Womancategories";
 import MensinteractiveMenu from "../../Components/MensinteractiveMenu/MensinteractiveMenu";
@@ -15,8 +15,7 @@ import {
 } from "@material-ui/core";
 import "./Assets/styles.css";
 //SERVICES_________
-import {createQquotation} from "../../services/Quotation/Quotation";
-
+import { createQquotation } from "../../services/Quotation/Quotation";
 
 //styles modal______
 const useStyles = makeStyles((theme) => ({
@@ -48,47 +47,32 @@ function Woman() {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [dataCotizacion, setDataCotizacion] = useState();
-  
-
-  
-
 
   const handleSubmit = () => {
     if (service && mode && cargoType && origin && destination) {
       setDataCotizacion({ service, mode, cargoType, origin, destination });
       setOpenModal(false);
     }
-  }
+  };
 
 
-  const submitcreateQquotation = () =>{
-    createQquotation(dataCotizacion)
-    .then(response => {
-      setService("")
-      setMode("")
-      setCargoType("")
-      setOrigin("")
-      setDestination("")
-      setDataCotizacion()
-    })
-    .catch(error => {
-      console.error(error);
-    });
-  }
 
   useEffect(() => {
     if (dataCotizacion) {
-      submitcreateQquotation();
+      createQquotation(dataCotizacion)
+      .then((response) => {
+        setService("");
+        setMode("");
+        setCargoType("");
+        setOrigin("");
+        setDestination("");
+        setDataCotizacion();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     }
   }, [dataCotizacion]);
-
-
-
-
-
- 
-
-     
 
   const body = (
     <div className={classes.paper}>
@@ -144,9 +128,6 @@ function Woman() {
       </div>
     </div>
   );
-
-
-
 
   return (
     <div>
