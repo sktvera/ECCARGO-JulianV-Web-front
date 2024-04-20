@@ -1,12 +1,9 @@
-<mxfile host="app.diagrams.net" modified="2024-04-20T23:05:00.134Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="3W6ui6yE_E2Y3DO-r9av" version="24.2.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-20T23:07:22.457Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="-1nrv8skt6u2Pw9ndFCG" version="24.2.7" type="github">
   <diagram name="Página-1" id="_zZfIsROVKrqcc1TlIVI">
     <mxGraphModel dx="756" dy="1561" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="ae3VG7JbaiyevE33gcLV-37" value="MYSQL" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="680" y="-198" width="136" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="ae3VG7JbaiyevE33gcLV-58" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/home.svg;" vertex="1" parent="1">
           <mxGeometry x="220" y="-609" width="50" height="48.5" as="geometry" />
         </mxCell>
