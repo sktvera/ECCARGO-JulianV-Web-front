@@ -1,14 +1,21 @@
 import React, { useEffect, useState, useRef } from "react";
 //Assets____________
 import amazons3 from "./Assets/Img-icon/amazons3.png";
-import uploadImg from './Assets/Img-icon/uploadImg.svg'
-import Button from "@material-ui/core/Button";
+import gateway from "./Assets/Img-icon/gateway.png";
 
+import uploadImg from "./Assets/Img-icon/uploadImg.svg";
+import Button from "@material-ui/core/Button";
+import Delete from "@mui/icons-material/DeleteOutline";
+import { IconButton, Tooltip } from "@material-ui/core";
 
 import "./Assets/styles.css";
 
 //services__________
-import { sendImageS3, getImagesS3 } from "../../services/AwsS3/AwsS3";
+import { sendImageS3, getImagesS3, deleteImage } from "../../services/AwsS3/AwsS3";
+
+//componentes _____
+import ModalDelete from "../ModalDelete/ModalDelete";
+
 
 const UploadImageS3 = ({ dataitems }) => {
   const inputFileRef = useRef(null);
@@ -16,8 +23,13 @@ const UploadImageS3 = ({ dataitems }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isImageS3, setIsImageS3] = useState(); //Respuesta imagen s3
   const [allImagesS3, setAllImagesS3] = useState(); //guarda todas las imagenes subidas a s3
-
+  const [open, setOpen] = useState(false); //habre y cierra la modal de eliminar IMG S3
   const [matchUrl, setmatchUrl] = useState();
+
+
+  const [isDeleteImgS3, setIsDeleteImgS3] = useState();//estado de elimicacion img s3
+
+  
 
   //get api aws s3 ______
   useEffect(() => {
@@ -39,7 +51,7 @@ const UploadImageS3 = ({ dataitems }) => {
       }
     };
     getAllImagesS3();
-  }, [isImageS3]); //
+  }, [isImageS3, isDeleteImgS3]); //
 
   console.log(matchUrl);
 
@@ -57,6 +69,16 @@ const UploadImageS3 = ({ dataitems }) => {
     }
   };
 
+ 
+  //habre la modal de verificacion para eliminar la IMG S3
+  const handleClickOpenDelete = () => {
+    setOpen(true);
+  };
+  //cierra la modal que verifica la eliminacion de la IMG S3
+  const handleClickCloseDelete = () => {
+    setOpen(false);
+  };
+
   const sendDataApiImageS3 = async (dataitems, selectedImage) => {
     //formatea la imagen en base 64 ______
     const image64 = new Promise((resolve, reject) => {
@@ -68,8 +90,7 @@ const UploadImageS3 = ({ dataitems }) => {
     console.log(image64);
     const image = await image64;
 
-    console.log({ selectedImage });
-    console.log({ dataitems });
+   
     //desestructurando el objeto para enviarlo al bucket de s3 aws______
     const newObj = {
       ...dataitems,
@@ -93,10 +114,29 @@ const UploadImageS3 = ({ dataitems }) => {
     }
   };
 
+  //permite lasubida de imagenes para el api gateway aws ___
   const handleDivClick = () => {
     // Dispara el evento de clic en el input de archivo
     inputFileRef.current.click();
   };
+
+
+   //realiza la peticion al backend para eliminar la cotizacion
+   const handleDelete = (matchUrl) => {
+    deleteImage(matchUrl) //servico de s3
+      .then((response) => {
+        setIsDeleteImgS3(response.data);
+        console.log("Elemento eliminado con éxito");
+        handleClickCloseDelete();
+      })
+      .catch((error) => {
+        console.error( {error});
+
+        
+      });
+  };
+
+ 
 
   return (
     <>
@@ -109,7 +149,6 @@ const UploadImageS3 = ({ dataitems }) => {
             >
               {/* si tiene una imagen en s3 lo remplaza por el preview ______ */}
 
-
               <img
                 src={
                   matchUrl ? matchUrl.url : URL.createObjectURL(selectedImage)
@@ -117,7 +156,46 @@ const UploadImageS3 = ({ dataitems }) => {
                 alt="Selected"
                 className="previewImage"
               />
-               {matchUrl ?<img style={{width:"120px"}} src={amazons3} alt="" class="icon" /> : null}
+
+              {/*  imagen amazon s3 _______ api gateway*/}
+              {matchUrl ? (
+                <img
+                  style={{ width: "120px" }}
+                  src={amazons3}
+                  alt=""
+                  class="icon"
+                />
+              ) : (
+                <img
+                  style={{ width: "120px" }}
+                  src={gateway}
+                  alt=""
+                  class="icon"
+                />
+              )}
+
+              {/*  eliminar imagen del s3 _______ */}
+              <Tooltip title="Eliminar IMG Aws">
+                <IconButton
+                
+                  className="iconDelete"
+                  onClick={handleClickOpenDelete}
+                >
+                  <Delete />
+                </IconButton>
+              </Tooltip>
+
+              <ModalDelete
+open={open}
+descriptionModal={"¿Estás seguro de que quieres la IMG de la carga aws s3?"}
+handleClose={handleClickCloseDelete}
+handleDelete={handleDelete}//funcion que ejecuta la eliminacion
+dataitems={matchUrl?.Key} //id de eliminacion o /query de eliminacion
+/>
+
+
+
+
             </div>
             {/* si tiene una imagen en s3 y quita el menu de subir imagen a s3*/}
             {matchUrl ? null : (

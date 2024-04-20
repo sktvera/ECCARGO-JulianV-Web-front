@@ -1,11 +1,5 @@
 import React, { useState } from "react";
 //ASSETS_______
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import Button from "@material-ui/core/Button";
 import { IconButton, Tooltip } from "@material-ui/core";
 import Edit from "@mui/icons-material/BorderColor";
 import Delete from "@mui/icons-material/DeleteOutline";
@@ -15,6 +9,8 @@ import "./Assets/styles.css";
 //COMPONENTES______
 import UploadImageS3 from "../UploadImageS3/UploadImageS3";
 import ModalQuatation from "../../Components/ModalQuatation/ModalQuatation";
+import ModalDelete from "../../Components/ModalDelete/ModalDelete";
+
 
 //SERVICES___
 import { deletebyIdQuotation } from "../../services/Quotation/Quotation";
@@ -92,36 +88,21 @@ function CardsAll({ items, setIsDelete }) {
       </Tooltip>
     </div>
   </div>
+
   {/* ENVIAR IMAGENES AL BUCKET DE S3 AWS _______ */}
   <UploadImageS3 dataitems={dataitems} />
 </div>
 
-      
-
       {/* MODAL ELIMINAR COTIZAION ___________ */}
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          {"Confirmación de eliminación"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            ¿Estás seguro de que quieres eliminar esta Cotizacion?
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            No
-          </Button>
-          <Button onClick={() => handleDelete(dataitems.id)} color="primary">
-            Sí
-          </Button>
-        </DialogActions>
-      </Dialog>
+
+<ModalDelete
+open={open}
+descriptionModal={"¿Estás seguro de que quieres eliminar esta Cotizacion?"}
+handleClose={handleClose}
+handleDelete={handleDelete}
+dataitems={dataitems.id}
+/>
+
 
       {/* MODAL EDITAR COTIZACION __________ */}
       <Modal

@@ -29,6 +29,19 @@
     height: auto;
   }
 
+  .containerLoadImageAws .iconDelete{
+    z-index: 1;
+    position: relative;
+    top: 0;
+    bottom: 14px;
+    left: 130px;
+    width: 50px; /* Ajusta el tamaño del icono según sea necesario */
+    height: auto;
+    background-color: #ffffff94;
+    border: 1px solid #00000038;
+
+  }
+
   .containerLoadImageAws {
     position: relative;
     width: 100%;
