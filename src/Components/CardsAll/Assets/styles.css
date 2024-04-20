@@ -1,80 +1,64 @@
-.bodyCard .tittles p:first-child{
-    font-weight: bold;
-}
-
-.bodyCard .tittles .cardItem{
-    font-size: 14px;
-}
-
-.bodyCard .tittles {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-.titlebodyCard{
-    background-color: #00000024;
+.bodyCard {
     width: 340px;
-    border-radius: 8px 8px 0px 0px;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    -webkit-border-radius: 8px 8px 0px 0px;
-    -moz-border-radius: 8px 8px 0px 0px;
-    -ms-border-radius: 8px 8px 0px 0px;
-    -o-border-radius: 8px 8px 0px 0px;
-    margin-bottom: 20px;
-}
-
-.bodyCard{
-width: 340px;
     flex-direction: column;
-  box-shadow: 10px 10px 29px -13px #000000bf;;
+    box-shadow: 10px 10px 29px -13px #000000bf;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
- 
-}
-
-.iconContainer{
+  }
+  
+  .titlebodyCard {
+    background-color: #00000024;
+    width: 94%;
+    border-radius: 8px 8px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tittles {
     display: flex;
     flex-direction: row;
-    margin-right: 5px;
-}
-
-
- 
-
-.editIcon, .deleteIcon {
+    gap: 10px;
+  }
+  
+  .tittles p {
+    font-size: 14px;
+  }
+  
+  .tittles .id {
+    font-weight: bold;
+  }
+  
+  .iconContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .editIcon, .deleteIcon {
+    color: black;
     display: none;
-}
-
-.bodyCard:hover .editIcon,
-.bodyCard:hover .deleteIcon {
+  }
+  
+  .bodyCard:hover .editIcon,
+  .bodyCard:hover .deleteIcon {
     display: block;
-}
-
-@media (max-width:1300px) {
-.bodyCard img{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
-}
-
-
-@media (max-width:900px) {
+  }
   
- 
-}
-
-@media (max-width:750px) {
+  @media (max-width:1300px) {
+    .bodyCard img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
   
-   
-}
-
-@media (max-width:400px) {
-  
-   
-}
+  @media (max-width:900px) {
+    .bodyCard, .titlebodyCard {
+      width: 100%;
+    }
+  }

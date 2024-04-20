@@ -5,9 +5,8 @@ import QuotationMenu from "../../Components/QuotationMenu/QuotationMenu";
 import QuotatioCard from "../../Components/QuotatioCard/QuotatioCard";
 //ASSETS_____
 import Modal from "@material-ui/core/Modal";
-
-
 import "./Assets/styles.css";
+
 //SERVICES_________
 import { createQquotation } from "../../services/Quotation/Quotation";
 import ModalQuatation from'../../Components/ModalQuatation/ModalQuatation'
@@ -16,7 +15,6 @@ import ModalQuatation from'../../Components/ModalQuatation/ModalQuatation'
 function Quotation() {
 
   const [openModal, setOpenModal] = useState(false);//abrir cerrar modal ______
-
   const [service, setService] = useState("");//save service___
   const [mode, setMode] = useState("");//save mode___
   const [cargoType, setCargoType] = useState("");//save cargoType____ 
