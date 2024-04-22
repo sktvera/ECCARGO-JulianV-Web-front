@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 //Assets____________
 import amazons3 from "./Assets/Img-icon/amazons3.png";
 import gateway from "./Assets/Img-icon/gateway.png";
-import mediaPreview from './Assets/Img-icon/mediaPreview.svg'
+import mediaPreview from "./Assets/Img-icon/mediaPreview.svg";
 
 import uploadImg from "./Assets/Img-icon/uploadImg.svg";
 import Button from "@material-ui/core/Button";
@@ -184,13 +184,11 @@ const UploadImageS3 = ({ dataitems }) => {
                 </IconButton>
               </Tooltip>
 
-<Tooltip title="Preview IMG">
-<IconButton
-className="iconPreview"
->
-<img src={mediaPreview} alt="" />
-</IconButton>
-</Tooltip>         
+              <Tooltip title="Preview IMG">
+                <IconButton className="iconPreview">
+                  <img src={mediaPreview} alt="" />
+                </IconButton>
+              </Tooltip>
 
               <ModalDelete
                 open={open}
@@ -201,7 +199,6 @@ className="iconPreview"
                 handleDelete={handleDelete} //funcion que ejecuta la eliminacion
                 dataitems={matchUrl?.Key} //id de eliminacion o /query de eliminacion
               />
-
             </div>
             {/* si tiene una imagen en s3 y quita el menu de subir imagen a s3*/}
             {matchUrl ? null : (
