@@ -37,7 +37,7 @@ function Header() {
               <Link
                 variant="button"
                 color="text.primary"
-                to="/Mens"
+                to="/Documentation"
                 sx={{ my: 1, mx: 1.5 }}
               >
                 Dcoumentacion
@@ -49,25 +49,25 @@ function Header() {
                 to="/Quotation"
                 sx={{ my: 1, mx: 1.5 }}
               >
-                Servicios-backend
+                Test Aplicacion
               </Link>
 
-              <Link
+             {/*  <Link
                 variant="button"
                 color="text.primary"
                 to="/things"
                 sx={{ my: 1, mx: 1.5 }}
               >
                 Frontend-web
-              </Link>
+              </Link> */}
 
               <Link
                 variant="button"
                 color="text.primary"
-                to="/store"
+                to="/DocumentationApis"
                 sx={{ my: 1, mx: 1.5 }}
               >
-                Frontend-mobile
+               Documentacion Apis
               </Link>
             </div>
 

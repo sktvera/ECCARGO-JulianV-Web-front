@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 //Assets____________
 import amazons3 from "./Assets/Img-icon/amazons3.png";
 import gateway from "./Assets/Img-icon/gateway.png";
+import mediaPreview from './Assets/Img-icon/mediaPreview.svg'
 
 import uploadImg from "./Assets/Img-icon/uploadImg.svg";
 import Button from "@material-ui/core/Button";
@@ -11,11 +12,14 @@ import { IconButton, Tooltip } from "@material-ui/core";
 import "./Assets/styles.css";
 
 //services__________
-import { sendImageS3, getImagesS3, deleteImage } from "../../services/AwsS3/AwsS3";
+import {
+  sendImageS3,
+  getImagesS3,
+  deleteImage,
+} from "../../services/AwsS3/AwsS3";
 
 //componentes _____
 import ModalDelete from "../ModalDelete/ModalDelete";
-
 
 const UploadImageS3 = ({ dataitems }) => {
   const inputFileRef = useRef(null);
@@ -26,10 +30,7 @@ const UploadImageS3 = ({ dataitems }) => {
   const [open, setOpen] = useState(false); //habre y cierra la modal de eliminar IMG S3
   const [matchUrl, setmatchUrl] = useState();
 
-
-  const [isDeleteImgS3, setIsDeleteImgS3] = useState();//estado de elimicacion img s3
-
-  
+  const [isDeleteImgS3, setIsDeleteImgS3] = useState(); //estado de elimicacion img s3
 
   //get api aws s3 ______
   useEffect(() => {
@@ -69,7 +70,6 @@ const UploadImageS3 = ({ dataitems }) => {
     }
   };
 
- 
   //habre la modal de verificacion para eliminar la IMG S3
   const handleClickOpenDelete = () => {
     setOpen(true);
@@ -90,7 +90,6 @@ const UploadImageS3 = ({ dataitems }) => {
     console.log(image64);
     const image = await image64;
 
-   
     //desestructurando el objeto para enviarlo al bucket de s3 aws______
     const newObj = {
       ...dataitems,
@@ -120,23 +119,24 @@ const UploadImageS3 = ({ dataitems }) => {
     inputFileRef.current.click();
   };
 
-
-   //realiza la peticion al backend para eliminar la cotizacion
-   const handleDelete = (matchUrl) => {
+  //realiza la peticion al backend para eliminar la cotizacion
+  const handleDelete = (matchUrl) => {
     deleteImage(matchUrl) //servico de s3
       .then((response) => {
         setIsDeleteImgS3(response.data);
         console.log("Elemento eliminado con éxito");
         handleClickCloseDelete();
+        setmatchUrl();
+        selectedImage();
       })
       .catch((error) => {
-        console.error( {error});
-
-        
+        console.error({ error });
       });
   };
 
- 
+  const clearImg = () => {
+    setSelectedImage();
+  };
 
   return (
     <>
@@ -177,7 +177,6 @@ const UploadImageS3 = ({ dataitems }) => {
               {/*  eliminar imagen del s3 _______ */}
               <Tooltip title="Eliminar IMG Aws">
                 <IconButton
-                
                   className="iconDelete"
                   onClick={handleClickOpenDelete}
                 >
@@ -185,16 +184,23 @@ const UploadImageS3 = ({ dataitems }) => {
                 </IconButton>
               </Tooltip>
 
+<Tooltip title="Preview IMG">
+<IconButton
+className="iconPreview"
+>
+<img src={mediaPreview} alt="" />
+</IconButton>
+</Tooltip>         
+
               <ModalDelete
-open={open}
-descriptionModal={"¿Estás seguro de que quieres la IMG de la carga aws s3?"}
-handleClose={handleClickCloseDelete}
-handleDelete={handleDelete}//funcion que ejecuta la eliminacion
-dataitems={matchUrl?.Key} //id de eliminacion o /query de eliminacion
-/>
-
-
-
+                open={open}
+                descriptionModal={
+                  "¿Estás seguro de que quieres la IMG de la carga aws s3?"
+                }
+                handleClose={handleClickCloseDelete}
+                handleDelete={handleDelete} //funcion que ejecuta la eliminacion
+                dataitems={matchUrl?.Key} //id de eliminacion o /query de eliminacion
+              />
 
             </div>
             {/* si tiene una imagen en s3 y quita el menu de subir imagen a s3*/}
@@ -209,14 +215,13 @@ dataitems={matchUrl?.Key} //id de eliminacion o /query de eliminacion
                   Agregar [IMG]carga
                 </Button>
                 <Button
+                  onClick={() => {
+                    clearImg();
+                  }}
                   style={{ border: "1px solid #00000033", borderRadius: "8px" }}
                 >
                   Cancelar
                 </Button>
-
-                {isImageS3 ? (
-                  <p className="uploadConfirmation">Se subió</p>
-                ) : null}
               </div>
             )}
           </div>

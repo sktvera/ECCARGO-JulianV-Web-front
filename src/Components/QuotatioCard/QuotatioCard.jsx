@@ -14,6 +14,8 @@ function QuotatioCard({dataCotizacion}) {
 
   const [allQuotation,setAllQuotation]=useState([])//GUarda todos los datos______
   const[isDelete,setIsDelete]=useState()//guarda el estado de la elimicacion exitosa____
+  const[isUpdate,setIsUpdate]=useState()//Detecta si se actualizo el objeto y recetea la peticion exitosa____
+
 
 //peticon backend carga todos los objetos____
   useEffect(() => {
@@ -26,15 +28,16 @@ function QuotatioCard({dataCotizacion}) {
       }
     };
     fetchAllQuotations();
-  }, [dataCotizacion, isDelete]);//detecta cuando se crea o se elimina un producto y realiza un nuevo llamado al backend___
+  }, [dataCotizacion, isDelete, isUpdate]);//detecta cuando se crea o se elimina un producto y realiza un nuevo llamado al backend___
 
 
   return (
-    <>
+    <div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center',gap:'10px'}}>
       {allQuotation.length > 0 ? (
             <div className="cardsGrid">
               {allQuotation.map((items) => {
-                return <CardsAll 
+                return <CardsAll
+                setIsUpdate={setIsUpdate} 
                 items={items}
                 setIsDelete={setIsDelete}
                  />;
@@ -48,7 +51,7 @@ function QuotatioCard({dataCotizacion}) {
          </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

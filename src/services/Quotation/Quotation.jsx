@@ -24,9 +24,9 @@ export function deletebyIdQuotation(idQuotation) {
   return axios.delete(`${urlApi}/api/quotation/${idQuotation}`);
 }
 //ACTUALIZAR COTIZACION
-export function updateByIdQuotation(idQuotation) {
+export function updateByIdQuotation(idQuotation,updateItem) {
 
-    return axios.patch(`${urlApi}/api/quotation/${idQuotation}`);
+    return axios.patch(`${urlApi}/api/quotation/${idQuotation}`,updateItem);
   }
 //CREAR COTIZACION
   export function createQquotation(newQquotation) {

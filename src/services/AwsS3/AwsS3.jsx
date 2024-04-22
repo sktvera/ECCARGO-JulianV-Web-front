@@ -11,10 +11,7 @@ export function getImagesS3() {
 }
 
 export function deleteImage(imageS3) {
-  return axios.delete(`${urlApi}deleteImage/${imageS3}`, {
-    headers: {
-      'Access-Control-Allow-Origin': '*', // Permite solicitudes CORS desde cualquier origen
-      'Access-Control-Allow-Methods': 'OPTIONS,POST,GET,DELETE' // Permite los métodos OPTIONS, POST, GET y DELETE
-    }
-  });
+  return axios.delete(`${urlApi}deleteImage?name=${imageS3}`);
 }
+
+

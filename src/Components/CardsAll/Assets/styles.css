@@ -1,4 +1,5 @@
 .bodyCard {
+  margin-top: 20px;
     width: 340px;
     flex-direction: column;
     box-shadow: 10px 10px 29px -13px #000000bf;
@@ -6,6 +7,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+    transition: transform 0.3s ease-in-out; /* Agrega esta línea */
+  }
+
+  .bodyCard:hover {
+    transform: translateY(-10px); /* Agrega esta regla */
   }
   
   .titlebodyCard {

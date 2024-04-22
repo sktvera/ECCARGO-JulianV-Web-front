@@ -11,7 +11,6 @@ import "./Assets/styles.css";
 import { createQquotation } from "../../services/Quotation/Quotation";
 import ModalQuatation from'../../Components/ModalQuatation/ModalQuatation'
 
-
 function Quotation() {
 
   const [openModal, setOpenModal] = useState(false);//abrir cerrar modal ______
@@ -20,7 +19,6 @@ function Quotation() {
   const [cargoType, setCargoType] = useState("");//save cargoType____ 
   const [origin, setOrigin] = useState("");//save origin____ 
   const [destination, setDestination] = useState("");//save destination____ 
-
 
   const [dataCotizacion, setDataCotizacion] = useState(); //guarda la data de cotización_____
 

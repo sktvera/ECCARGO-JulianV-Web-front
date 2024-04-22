@@ -14,8 +14,10 @@ import ModalDelete from "../../Components/ModalDelete/ModalDelete";
 
 //SERVICES___
 import { deletebyIdQuotation } from "../../services/Quotation/Quotation";
+import { updateByIdQuotation } from "../../services/Quotation/Quotation";
 
-function CardsAll({ items, setIsDelete }) {
+
+function CardsAll({ items, setIsDelete,setIsUpdate }) {
   const dataitems = items ?? []; //DATOS DE LAS COTIZACIONES CREADAS____
 
   const [openModal, setOpenModal] = useState(false);
@@ -26,15 +28,31 @@ function CardsAll({ items, setIsDelete }) {
   const [origin, setOrigin] = useState(dataitems.origin);
   const [destination, setDestination] = useState(dataitems.destination);
   const [dataCotizacion, setDataCotizacion] = useState(); //valida y guarda los datos de la cotizacion creada, para actualizarla___
-  const [open, setOpen] = useState(false); //habre y cierra la modal de eliminar cotizacion
+  const [open, setOpen] = useState(false); //habre y cierra la modal de eliminar cotizacion  keyId
+  const [keyId, setKeyId] = useState(); //  keyId
+
 
   //envia el formulario de editar cotizacion__
   const handleSubmit = () => {
     if (service && mode && cargoType && origin && destination) {
       setDataCotizacion({ service, mode, cargoType, origin, destination });
       setOpenModal(false);
+
+      if(dataCotizacion){
+        updateByIdQuotation(keyId,dataCotizacion)
+        .then((response) => {
+          console.log(response)
+          setIsUpdate(response)
+          setDataCotizacion()
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      }
     }
   };
+
+  console.log({dataCotizacion})
 
   //habre la modal de verificacion para eliminar la cotizacion
   const handleClickOpen = () => {
@@ -115,6 +133,8 @@ dataitems={dataitems.id}
         }}
       >
         <ModalQuatation
+        setKeyId={setKeyId}
+        keyId={dataitems}
           title={`Actuzalizar Cotizacion`}
           subtitle={`Su cotizacion sera actualizada y evidenciada en el panel de agendamiento`}
           labelButton={`Actualizar`}

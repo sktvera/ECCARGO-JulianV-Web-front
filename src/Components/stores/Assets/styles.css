@@ -1,43 +1,41 @@
-
-.store{
-    background-image: url('./Img/CONEJO.jpg');
-    height: 900PX;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.storesCard{
-    background-color: white;
-    width: 400px;
-    height: 130px;
-}
-.containerSelect{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.containerSelect-item{
-    width: 90% !important;
-}
-
-.storesCard p{
-    font-weight: bold;
-    text-align: center;
-    font-weight: bold;
-    font-size: 22px;
-}
-.selected{
+.store {
+    height: 900px;
+    width: 100%;  
     background-color: black;
-    color: white !important;
-    font-weight: bold;
 }
 
-.items-selected{
-   color: black !important;
-   font-weight: bold;
-    border: 1px solid rgb(0, 0, 0) !important;
+.contentVideo{
+    top: 56em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
+#myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}
+
+.superPosition{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    right: 20%;
+    bottom: 470px;
+    width: 1100px;
+    border-radius: 8px;
+}
+
+.columnApis{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+}

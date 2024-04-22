@@ -29,19 +29,21 @@ const useStyles = makeStyles((theme) => ({
       minWidth: 120,
     },
   }));
-
+  
 const ModalQuatation = (
-    {
+    {setKeyId,keyId,
     service,mode,cargoType,destination,origin,//leer estados
     setService, setMode,setCargoType,setOrigin,setDestination, setOpenModal, //guardar estados
     handleSubmit, //funcion de enviarformulario
     title, subtitle, labelButton// textos__
     }) => {
 
-
+const valuekeyId = keyId ?? null;
         
        
-
+if(valuekeyId){
+  setKeyId(valuekeyId.id)
+}
 
 
     const classes = useStyles();//estilos modal______

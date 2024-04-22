@@ -1,5 +1,4 @@
 {
- 
   "name": "ECCARGOTest",
   "version": "0.1.0",
   "private": true,
@@ -17,7 +16,8 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.2",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "react-youtube": "^10.1.0"
   },
   "scripts": {
     "build": "CI=false react-scripts build",
