@@ -26,7 +26,10 @@ function Quotation() {
   const handleSubmit = () => {
     if (service && mode && cargoType && origin && destination) {
       setDataCotizacion({ service, mode, cargoType, origin, destination });
+      
       setOpenModal(false);
+    }else{
+      alert("llena todos los campos del formulario")
     }
   };
 

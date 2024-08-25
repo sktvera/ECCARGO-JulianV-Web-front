@@ -184,11 +184,11 @@ const UploadImageS3 = ({ dataitems }) => {
                 </IconButton>
               </Tooltip>
 
-              <Tooltip title="Preview IMG">
+             {/*  <Tooltip title="Preview IMG">
                 <IconButton className="iconPreview">
                   <img src={mediaPreview} alt="" />
                 </IconButton>
-              </Tooltip>
+              </Tooltip> */}
 
               <ModalDelete
                 open={open}

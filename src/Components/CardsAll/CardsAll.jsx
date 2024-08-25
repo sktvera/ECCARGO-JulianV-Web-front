@@ -36,13 +36,14 @@ function CardsAll({ items, setIsDelete,setIsUpdate }) {
   const handleSubmit = () => {
     if (service && mode && cargoType && origin && destination) {
       setDataCotizacion({ service, mode, cargoType, origin, destination });
-      setOpenModal(false);
+      
 
       if(dataCotizacion){
         updateByIdQuotation(keyId,dataCotizacion)
         .then((response) => {
           console.log(response)
           setIsUpdate(response)
+          setOpenModal(false);
           setDataCotizacion()
         })
         .catch((error) => {

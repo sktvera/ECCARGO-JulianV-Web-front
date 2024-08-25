@@ -7,7 +7,7 @@ import backend from "./Assets/Img/backend.png";
 function MensCard() {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h1 style={{ width: "380px" }}>Doumentacion aplicativo</h1>
+      <h1 style={{ width: "380px" }}>Documentacion aplicativo</h1>
       <img src={Diagram} alt="" />
       <div
         style={{

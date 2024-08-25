@@ -40,7 +40,7 @@ function Header() {
                 to="/Documentation"
                 sx={{ my: 1, mx: 1.5 }}
               >
-                Dcoumentacion
+                Documentacion
               </Link>
 
               <Link
